@@ -1,0 +1,32 @@
+import nltk
+from nltk.tokenize import word_tokenize
+
+def greet_user():
+ print("Hello! How can I assist you today?")
+
+def process_input(user_input):
+ tokens = word_tokenize(user_input)
+ intent = detect_intent(tokens)
+ respond(intent)
+
+def detect_intent(tokens):
+ # Simple intent detection logic
+ if "hello" in tokens:
+ return "greeting"
+ elif "help" in tokens:
+ return "assistance"
+ else:
+ return "unknown"
+
+def respond(intent):
+ if intent == "greeting":
+ print("Hello! How are you?")
+ elif intent == "assistance":
+ print("How can I help you?")
+ else:
+ print("I didn't understand. Please rephrase.")
+
+greet_user()
+while True:
+ user_input = input("User: ")
+ process_input(user_input)
